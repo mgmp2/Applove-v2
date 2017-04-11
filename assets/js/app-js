@@ -5,6 +5,7 @@ window.addEventListener("load", function (e){
   e.preventDefault();
   createImages();
   crateModal();
+
 });
 
 function createImages(){
@@ -17,6 +18,10 @@ function createImages(){
     img.setAttribute("src","assets/img/img-"+i+".jpg");
     img.setAttribute("alt","Nuevo Proyecto");
     img.setAttribute("width","200");
+    img.addEventListener("click", function (e){
+      document.getElementById('body').classList.add("overflow-hidden");
+
+    });
     var subt = document.createElement("h5");
     subt.setAttribute("class","mb-0 text-uppercase");
     var span= document.createTextNode(" Proyecto Nuevo");
@@ -28,15 +33,18 @@ function createImages(){
   }
 }
 function crateModal(){
-  for(var i=1; i<= 12; i++ ){
-  alert(i.length);
+  for(var i=1; i< workContainer.getElementsByTagName("img").length; i++ ){
     var divModal= document.createElement("div");
         divModal.setAttribute("class","modal");
         divModal.setAttribute("id","img-"+i);
     var cerrar  = document.createElement("a");
-        cerrar.setAttribute("href","");
+        cerrar.setAttribute("href"," ");
         cerrar.setAttribute("class","cerrar");
         cerrar.innerHTML = "X";
+    cerrar.addEventListener("click", function(){
+      document.getElementById('body').classList.remove("overflow-hidden");
+
+    });
     var divImg = document.createElement("div");
         divImg.setAttribute("class","imagen");
     var back = document.createElement("a");
@@ -50,17 +58,17 @@ function crateModal(){
 
     if(i==1 ){
       back.setAttribute("href","#img-"+(12));
-      actual.setAttribute("href","#img"+(i+1));
+      actual.setAttribute("href","#img-"+(i+1));
       next.setAttribute("href", "#img-"+(i+1));
     }
     else if(i==12){
       back.setAttribute("href","#img-"+(i-1));
-      actual.setAttribute("href","#img"+(1));
+      actual.setAttribute("href","#img-"+(1));
       next.setAttribute("href", "#img-"+(1));
     }
     else{
       back.setAttribute("href","#img-"+(i-1));
-      actual.setAttribute("href","#img"+(i+1));
+      actual.setAttribute("href","#img-"+(i+1));
       next.setAttribute("href", "#img-"+(i+1));
 
     }

@@ -153,7 +153,7 @@ a:hover {
 }
 /*Modal*/
 .cerrar {
-  top: 25px;
+  top: 6%;
   right: 25%;
   display: block;
   width: 21px;
@@ -163,6 +163,7 @@ a:hover {
   line-height: 25px;
   font-size: 21px;
   position: absolute;
+  color: rgba(40, 195, 72, 0.95);
 }
 .modal{
   display: none;
@@ -185,8 +186,8 @@ a:hover {
   align-items: center; /*centrado verticalmente */
 }
 .imagen a{
-  color: rgba(40, 195, 72, 0.65);
-  font-size: 42px;
+  color: rgba(40, 195, 72, 0.95);
+  font-size: 49px;
 
   text-decoration: none;
   margin: 0 10px;
