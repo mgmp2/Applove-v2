@@ -153,15 +153,15 @@ a:hover {
 }
 /*Modal*/
 .cerrar {
-  top: 6%;
-  right: 25%;
+  top: 9%;
+  right: 27%;
   display: block;
   width: 21px;
   height: 21px;
   text-align: center;
   text-decoration: none;
   line-height: 25px;
-  font-size: 21px;
+  font-size: 28px;
   position: absolute;
   color: rgba(40, 195, 72, 0.95);
 }
@@ -203,7 +203,7 @@ a:hover {
   width: 700px;
   height: 200%;
   max-width: 100%;
-  border: 7px solid #fff;
+  border: 25px solid #fff;
   box-sizing: border-box;
 
 }
