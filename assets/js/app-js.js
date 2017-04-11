@@ -1,12 +1,21 @@
 
   var workContainer = document.getElementById("work");
-  var boxModal      = document.getElementById("modal")
+  var boxModal      = document.getElementById("modal");
+  var nameProyect = ["taiman group", "nalia organics", "brass coq", "disk", "mitragyna speciosa", "foam king",
+                    "voltion","disk ink","expanding learning","owls & apples","music","platinum"];
+
+
 window.addEventListener("load", function (e){
   e.preventDefault();
   createImages();
   crateModal();
-
+  window.scrollBy(0, 2306);
 });
+
+window.addEventListener("ondragend",function(e){
+  alert("funcione");
+
+})
 
 function createImages(){
   for(var i=1; i<=12; i++ ){
@@ -16,7 +25,7 @@ function createImages(){
     a.setAttribute("href","#img-"+i);
     var img= document.createElement("img");
     img.setAttribute("src","assets/img/img-"+i+".jpg");
-    img.setAttribute("alt","Nuevo Proyecto");
+    img.setAttribute("alt",nameProyect[i-1]);
     img.setAttribute("width","200");
     img.addEventListener("click", function (e){
       document.getElementById('body').classList.add("overflow-hidden");
@@ -24,7 +33,7 @@ function createImages(){
     });
     var subt = document.createElement("h5");
     subt.setAttribute("class","mb-0 text-uppercase");
-    var span= document.createTextNode(" Proyecto Nuevo");
+    var span= document.createTextNode(nameProyect[i-1]);
     subt.appendChild(span);
     a.appendChild(img);
     div.appendChild(a);
@@ -38,12 +47,11 @@ function crateModal(){
         divModal.setAttribute("class","modal");
         divModal.setAttribute("id","img-"+i);
     var cerrar  = document.createElement("a");
-        cerrar.setAttribute("href"," ");
+        cerrar.setAttribute("href","");
         cerrar.setAttribute("class","cerrar");
         cerrar.innerHTML = "X";
-    cerrar.addEventListener("click", function(){
+    cerrar.addEventListener("onmousedown", function(){
       document.getElementById('body').classList.remove("overflow-hidden");
-
     });
     var divImg = document.createElement("div");
         divImg.setAttribute("class","imagen");
@@ -51,12 +59,12 @@ function crateModal(){
     var actual = document.createElement("a");
     var img = document.createElement("img");
         img.setAttribute("src","assets/img/img-"+i+".jpg");
-        img.setAttribute("alt","Modal");
+        img.setAttribute("alt",nameProyect[i-1]);
     var next = document.createElement("a");
         back.innerHTML = "&#60;";
         next.innerHTML = ">";
 
-    if(i==1 ){
+    if(i==1){
       back.setAttribute("href","#img-"+(12));
       actual.setAttribute("href","#img-"+(i+1));
       next.setAttribute("href", "#img-"+(i+1));

@@ -174,15 +174,16 @@ a:hover {
   background: rgba(40, 195, 72, 0.65);
   top: 0;
   left: 0;
+  padding: 30px;
+  /*para que me ocupe toda la pantalla */
   width: 100%;
   height: 100%;
-  padding: 30px;
 }
 .imagen {
   width: 100%;
   height: 50%;
-  display: flex;
-  justify-content: center;
+  display: flex; /* los pone en linea a las imagenes */
+  justify-content: center; /* para que exista un espacio entre ellas */
   align-items: center; /*centrado verticalmente */
 }
 .imagen a{
