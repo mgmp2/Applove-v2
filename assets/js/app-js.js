@@ -3,19 +3,21 @@
   var boxModal      = document.getElementById("modal");
   var nameProyect = ["taiman group", "nalia organics", "brass coq", "disk", "mitragyna speciosa", "foam king",
                     "voltion","disk ink","expanding learning","owls & apples","music","platinum"];
-
+  var y=0;
+  if(!localStorage.getItem('posicionY')){
+    localStorage.setItem('posicionY',JSON.stringify(y));
+    y = JSON.parse(localStorage.getItem('posicionY'));
+  }
+  else{
+    y = JSON.parse(localStorage.getItem('posicionY'));
+  };
 
 window.addEventListener("load", function (e){
   e.preventDefault();
   createImages();
   crateModal();
-  window.scrollBy(0, 2306);
+  window.scrollBy(0,JSON.parse(localStorage.getItem('posicionY')));
 });
-
-window.addEventListener("ondragend",function(e){
-  alert("funcione");
-
-})
 
 function createImages(){
   for(var i=1; i<=12; i++ ){
@@ -29,7 +31,9 @@ function createImages(){
     img.setAttribute("width","200");
     img.addEventListener("click", function (e){
       document.getElementById('body').classList.add("overflow-hidden");
-
+      y = window.pageYOffset;
+      localStorage.setItem('posicionY',JSON.stringify(y));
+      console.log(localStorage);
     });
     var subt = document.createElement("h5");
     subt.setAttribute("class","mb-0 text-uppercase");
@@ -46,11 +50,11 @@ function crateModal(){
     var divModal= document.createElement("div");
         divModal.setAttribute("class","modal");
         divModal.setAttribute("id","img-"+i);
-    var cerrar  = document.createElement("a");
-        cerrar.setAttribute("href","");
-        cerrar.setAttribute("class","cerrar");
-        cerrar.innerHTML = "X";
-    cerrar.addEventListener("onmousedown", function(){
+    var close  = document.createElement("a");
+        close.setAttribute("href","");
+        close.setAttribute("class","close");
+        close.innerHTML = "X";
+    close.addEventListener("onmousedown", function(){
       document.getElementById('body').classList.remove("overflow-hidden");
     });
     var divImg = document.createElement("div");
@@ -85,7 +89,7 @@ function crateModal(){
     divImg.appendChild(back);
     divImg.appendChild(actual);
     divImg.appendChild(next);
-    divModal.appendChild(cerrar);
+    divModal.appendChild(close);
     divModal.appendChild(divImg);
     boxModal.appendChild(divModal);
 

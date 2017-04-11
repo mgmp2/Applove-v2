@@ -152,7 +152,7 @@ a:hover {
   cursor: pointer;
 }
 /*Modal*/
-.cerrar {
+.close {
   top: 9%;
   right: 27%;
   display: block;
